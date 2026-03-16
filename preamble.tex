@@ -201,10 +201,11 @@
 \usepackage[separate-uncertainty=true]{siunitx}     % Consistent SI units. Use \qty, \unit and \qtyrange commands.
                                                     % e.g. \qty{20}{\per\centi\meter\cubed} is 20cm^-3 printed nice
 % NOTE FOR ADVANCED USERS:
-\sisetup{detect-weight,detect-shape,mode=text}      % This uses the text font for numbers throughout, even if
-                                                    % they're in equations. This means writing, say, $<\qty{0.5}{\metre}$
-                                                    % in a sentence looks in keeping with the rest of the text.
-                                                    % This isn't always what you want, so if you need units in a proper equation, use \qty[mode=math].
+% The next line tells siunitx to use the text font for numbers throughout, even if they're in equations.
+% This means writing, say, $<\qty{0.5}{\metre}$ in a sentence looks in keeping with the rest of the text.
+% This isn't always what you want, so if you need units in a proper equation, use \qty[mode=math].
+\sisetup{detect-weight,detect-shape,mode=text}      
+
 %%%%%%%%%%%%%%%%%%%%%% Hyperlinks and PDF Metadata Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[pdfpagelabels,hidelinks]{hyperref}      % Use in-document hyperlinks
 \usepackage[capitalize,nameinlink]{cleveref}        % Use clever references to get names linking and autopopulation of type
@@ -304,6 +305,3 @@
 % built-in one with zero faff by uncommenting this line. Make sure you remove all the guff
 % that I've added if you do!
 %\sffamily
-%
-% Ensure that quantities in math mode use normal font by default. Makes things look neater
-% You can always use [mode=math] to convert to math mode
