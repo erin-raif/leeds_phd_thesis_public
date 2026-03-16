@@ -26,7 +26,7 @@
 % ------------ Notes on this template: ------------------------------------------
 % STRUCTURE - each piece of writing is contained in a separate .tex file.
 % This allows faster compilation by only selecting relevant files using the
-% \includeonly command on line 2 of main.tex. 
+% \includeonly command on line 17 of main.tex. 
 %
 % LINKING and CROSS-REFERENCING - this package is designed to use
 % the \cref command rather than the \ref demand, automatically creating
@@ -46,7 +46,8 @@
 % is grim.
 %
 % PDF METADATA - You will need to change this in the preamble to include
-% your own name, title etc. I could have automated this and the front page
+% your own name, title etc. I could have automated this and the front page.
+% I haven't.
 %
 % CUSTOM MATHS/HYPENATION/SHORTHANDS - enter these in custom_defs.tex
 %    for ease and input after maths packages have been loaded
@@ -56,13 +57,14 @@
 %    early, I'm afraid.
 % 
 % --- Complilation instructions: ---
-%   - Tested to work on Overleaf (as of February 2025)
+%   - Tested to work on Overleaf with XeLaTeX (as of February 2026)
 % TODO DO THIS OFFLINE, NOTE USING XeLaTeX NOT pdfLaTeX if using font changes here
 %   - Otherwise to compile yourself:
 %     pdflatex 0_thesis.tex
 %     biber 0_thesis                                         
 %.    makeindex 0_thesis.nlo -s nomencl.ist -o 0_thsis.nls    
 %     pdflatex thesis.tex
+% PDFLATEX WILL BREAK WHEN USING THE CUSTOM FONT!
 %
 % --- University of Leeds Thesis Guidance (Aug 2024) ---
 % Please note that you should check the guidance has not changed since I
@@ -139,7 +141,7 @@
 % Open Sans is a modern font for unicode, so you should be able to remove textcomp and gensymb
 % and avoid the warnings - however, this requires a little more overhead to create symbols
 % like degrees, so I've left them in. If you're trying to add something particularly complex,
-% try removing these.
+% try removing these as they can interfere with some other packages.
 %%%%%%%%%%%%%%%%%%%%%% Optional dark mode for night owls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\pagecolor[rgb]{0.075,0.075,0.075}         % "dark mode" background when uncommented
 %\color[rgb]{0.9,0.9,0.9}                   % "dark mode" font when uncommented
@@ -149,7 +151,8 @@
 \usepackage{a4}                             % TODO: check if redundant
 \usepackage{geometry}                       % Package to setup page margins
 \geometry{a4paper,inner=40mm,outer=25mm,top=30mm,bottom=30mm}
-\usepackage{multicol}                       % multicolumn text where appropriate, used in refs.
+\usepackage{multicol}                       % multicolumn text where appropriate (not used here
+                                            % but you might want it to save reference space)
 \usepackage{verbatim}                       % allows font without formatting
 \usepackage{pdflscape}                      % for landscape pages in the appendix
 \usepackage{setspace}                       % choose spacing
@@ -237,6 +240,7 @@
 %           + links to the list every time, which is helpful
 %           + you should (?) be warned if you call an undefined abbreviation
 %           - extra overhead when writing to remember to do this every time
+%           - sometimes stylistically you want to clarify what an acronym is midway through
 %           - lots of hyperlinks can be irritating for your examiner if they read on tablet
 % Option 2: Low-effort acronym implementation. Manually create the list of abbreviations. No
 %           need to type \ac all the time but you do need to remember to add them as you go.
@@ -303,4 +307,3 @@
 %
 % Ensure that quantities in math mode use normal font by default. Makes things look neater
 % You can always use [mode=math] to convert to math mode
-\sisetup{detect-weight,detect-shape,mode=text}
